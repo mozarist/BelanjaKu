@@ -14,15 +14,22 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-zinc-100">
+    <body class="flex items-center  font-sans text-zinc-900 antialiased bg-zinc-100 min-h-screen">
+        
+        <div class="w-full min-h-screen h-full bg-gradient-to-tr from-indigo-600 to-rose-600">
+            <p class="text-6xl text-white p-5">
+                Belanja lebih cepat lebih murah hanya di BelanjaKu
+            </p>
+        </div>
+        
+        <div class="flex flex-col sm:justify-center items-center w-full pt-6 sm:pt-0 ">
             <div>
                 <a href="/">
-                    <x-application-logo class="text-6xl h-16" />
+                    <x-application-logo class="text-3xl md:text-4xl lg:text-6xl xl:text-8xl h-32" />
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white border border-indigo-800 shadow-xl overflow-hidden sm:rounded-2xl">
+            <div class="w-full max-w-lg py-4">
                 {{ $slot }}
             </div>
         </div>

@@ -26,7 +26,7 @@
                 <!-- Pengguna -->
                 <label
                     class="flex-1 flex gap-4 items-center hover:bg-gradient-to-tr from-indigo-100 to-white border border-indigo-300 rounded-lg p-4 cursor-pointer hover:border-indigo-600 transition peer-checked:border-indigo-600 peer-checked:bg-indigo-600">
-                    <input type="radio" name="role" value="Pengguna" class="peer">
+                    <input type="radio" name="role" value="pengguna" class="peer">
                     <div>
                         <div class="font-semibold text-gray-800">Pengguna</div>
                         <div class="text-sm text-gray-500">Belanja dan lakukan pemesanan produk.</div>
@@ -36,7 +36,7 @@
                 <!-- Penjual -->
                 <label
                     class="flex-1 flex gap-4 items-center hover:bg-gradient-to-tr from-indigo-100 to-white border border-indigo-300 rounded-lg p-4 cursor-pointer hover:border-indigo-600 transition peer-checked:border-indigo-600 peer-checked:bg-indigo-600">
-                    <input type="radio" name="role" value="Penjual" class="peer">
+                    <input type="radio" name="role" value="penjual" class="peer">
                     <div>
                         <div class="font-semibold text-gray-800">Penjual</div>
                         <div class="text-sm text-gray-500">Kelola produk dan proses pesanan pelanggan.</div>

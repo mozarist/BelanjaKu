@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role' => ['required', Rule::in(['user', 'admin'])],
+            'role' => ['required', Rule::in(['pengguna', 'penjual'])],
         ]);
 
         $user = User::create([
@@ -47,6 +47,10 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        if ($user->role === 'penjual') {
+            return redirect('seller');
+        }
 
         return redirect(route('dashboard', absolute: false));
     }
