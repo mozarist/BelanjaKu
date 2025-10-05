@@ -23,6 +23,7 @@
 </head>
 
 <body class="bg-zinc-100 text-[#1b1b18] flex p-6 lg:p-8 items-center min-h-screen flex-col font-[inter]">
+    
     <nav class="w-full fixed text-sm mb-6 px-20 not-has-[nav]:hidden">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">

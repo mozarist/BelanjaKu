@@ -22,23 +22,23 @@
         <div class="mt-4">
             <x-input-label for="role" value="Daftar Sebagai" />
 
-            <div class="flex gap-4">
+            <div class="flex gap-4 mt-1">
                 <!-- Pengguna -->
                 <label
-                    class="flex-1 flex gap-4 items-center hover:bg-gradient-to-tr from-indigo-100 to-white border border-indigo-300 rounded-lg p-4 cursor-pointer hover:border-indigo-600 transition peer-checked:border-indigo-600 peer-checked:bg-indigo-600">
-                    <input type="radio" name="role" value="pengguna" class="peer">
+                    class="flex-1 flex gap-4 items-center peer hover:bg-gradient-to-tr from-indigo-100 to-white border border-indigo-600 rounded-lg p-4 cursor-pointer hover:border-indigo-600 transition peer-has-checked:border-rose-600">
+                    <input type="radio" name="role" value="pengguna">
                     <div>
-                        <div class="font-semibold text-gray-800">Pengguna</div>
+                        <div class="font-semibold text-gray-800 peer-checked:text-rose-600">Pengguna</div>
                         <div class="text-sm text-gray-500">Belanja dan lakukan pemesanan produk.</div>
                     </div>
                 </label>
 
                 <!-- Penjual -->
                 <label
-                    class="flex-1 flex gap-4 items-center hover:bg-gradient-to-tr from-indigo-100 to-white border border-indigo-300 rounded-lg p-4 cursor-pointer hover:border-indigo-600 transition peer-checked:border-indigo-600 peer-checked:bg-indigo-600">
-                    <input type="radio" name="role" value="penjual" class="peer">
+                    class="flex-1 flex gap-4 items-center peer hover:bg-gradient-to-tr from-indigo-100 to-white border border-indigo-600 rounded-lg p-4 cursor-pointer hover:border-indigo-600 transition peer-has-checked:border-rose-600">
+                    <input type="radio" name="role" value="penjual">
                     <div>
-                        <div class="font-semibold text-gray-800">Penjual</div>
+                        <div class="font-semibold text-gray-800 peer-checked:text-rose-600">Penjual</div>
                         <div class="text-sm text-gray-500">Kelola produk dan proses pesanan pelanggan.</div>
                     </div>
                 </label>
@@ -66,7 +66,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+            <a class="underline text-sm text-zinc-950 hover:text-zinc-800 rounded-md"
                 href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>

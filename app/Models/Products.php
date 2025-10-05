@@ -12,6 +12,12 @@ class Products extends Model
         'stok',
         'status',
         'deskripsi',
-        'gambar',   
+        'gambar',
+        'user_id',
     ];
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

@@ -1,24 +1,27 @@
-<nav x-data="{ open: false }" class="w-full bg-white border-b border-zinc-300">
+<nav x-data="{ open: false }" class="fixed w-full bg-white/50 backdrop-blur-md border-b border-zinc-300">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex justify-between">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center text-2xl text-indigo-600 font-semibold">
+                <div class="shrink-0 flex items-center text-2xl text-rose-600 font-semibold">
                     <h1>
                         <a href="/">
                             <x-application-logo class="text-2xl" />
                         </a>
-                        Seller Overview
+                        @if (Route::is('seller.index', 'products.create', 'products.edit'))
+                            Seller Overview
+                        @endif
+
                     </h1>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('seller.index')" :active="request()->routeIs('seller.index')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
+                </div> -->
             </div>
 
             <!-- Settings Dropdown -->
@@ -26,7 +29,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-600 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-3 py-2 border border-zinc-300 text-sm leading-4 font-medium rounded-md text-rose-600 bg-white/65 backdrop-blur-md hover:text-rose-800 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -49,8 +52,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
+                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -99,8 +101,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
+                    <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>

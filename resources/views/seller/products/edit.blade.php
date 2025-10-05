@@ -2,11 +2,12 @@
 
     <div class="flex flex-col items-center justify-center min-h-[80vh] w-full h-full">
 
-        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data"
+        <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data"
             class="space-y-4 w-full max-w-2xl self-center p-5 rounded-2xl border border-zinc-800 bg-gradient-to-tr from-zinc-100 to-white shadow-lg">
             @csrf
+            @method('PUT')
 
-            <h2 class="text-2xl font-semibold mb-4">Produk Baru</h2>
+            <h2 class="text-2xl font-semibold mb-4">Edit Produk</h2>
 
             <div id="imgPreview" class="mt-3 hidden">
                 <p class="text-xs mb-2">Preview:</p>
@@ -16,21 +17,21 @@
 
             <label class="block ">
                 <span class="text-sm">Nama Produk</span>
-                <input type="text" name='nama' placeholder="Masukkan nama produk" required
+                <input type="text" name='nama' placeholder="Masukkan nama produk" required value="{{ $product->nama }}"
                     class="mt-1 block w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600" />
             </label>
 
             <div class=" flex gap-4 items-center w-full">
                 <label class="flex-1">
                     <span class="text-sm">Harga (IDR)</span>
-                    <input type="number" min="250" value="250" step="50" name="harga"
+                    <input type="number" min="250" value="{{ $product->harga }}" step="50" name="harga"
                         placeholder="Masukkan harga produk" required
                         class="mt-1 w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600" />
                 </label>
 
                 <label class="flex-1">
                     <span class="text-sm">Stok</span>
-                    <input type="number" min="0" value="1" name="stok"
+                    <input type="number" min="0" value="{{ $product->stok }}" name="stok"
                         placeholder="Masukkan stok produk" required
                         class="mt-1 w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600" />
                 </label>
@@ -40,7 +41,7 @@
                 <span class="text-sm">Deskripsi Produk</span>
                 <textarea name="deskripsi" placeholder="Masukkan deskripsi produk (pastikan deskripsi sesuai dengan produk yang dijual)"
                     rows="4"
-                    class="mt-1 block w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600"></textarea>
+                    class="mt-1 block w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600">{{ $product->deskripsi }}</textarea>
             </label>
 
             <label class="block ">
@@ -55,8 +56,8 @@
                 <select name="status"
                     class="mt-1 block w-full rounded-lg bg-zinc-950 text-white border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600"
                     required>
-                    <option value="aktif" class="bg-zinc-950 text-white">Aktif</option>
-                    <option value="nonaktif" class="bg-zinc-950 text-white">Nonaktif (simpan produk di draft)</option>
+                    <option value="aktif" {{ $product->status == 'aktif' ? 'selected' : '' }} class="bg-zinc-950 text-white">Aktif</option>
+                    <option value="nonaktif" {{ $product->status == 'nonaktif' ? 'selected' : '' }} class="bg-zinc-950 text-white">Nonaktif (simpan produk di draft)</option>
                 </select>
             </label>
 

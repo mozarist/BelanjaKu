@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Products;
+use Illuminate\Support\Facades\Auth;
 
 class SellerController extends Controller
 {
@@ -11,7 +13,8 @@ class SellerController extends Controller
      */
     public function index()
     {
-        return view('seller.index');
+        $product = Products::where('user_id', Auth::id())->get();
+        return view('seller.index', compact('product'));
     }
 
     /**
