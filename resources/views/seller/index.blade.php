@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <!-- welcoming user -->
-    <div class="bg-gradient-to-tl from-indigo-600 via-rose-600 to-orange-600 overflow-hidden shadow-sm sm:rounded-md">
+    <div class="bg-gradient-to-tl from-indigo-600 via-rose-600 to-orange-600 overflow-hidden rounded-md">
         <p class="p-5 text-white font-semibold">
             Selamat datang kembali, {{ Auth::user()->name }}!
         </p>
@@ -57,7 +57,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols:3 xl:grid-cols-3 2xl-grid-cols-4 gap-5">
 
             @foreach ($product as $p)
-                <div class="flex flex-col gap-5 bg-white p-5 w-full h-full border border-zinc-500 shadow-sm rounded-xl">
+                <div class="flex flex-col gap-5 bg-white p-5 w-full h-full border border-zinc-500 rounded-xl hover:scale-105 transition">
                     <a href="{{ route('products.show', $p->id) }}">
                         <img src="{{ asset('storage/' . $p->gambar) }}" alt=""
                             class="flex-2 w-full aspect-square object-cover border border-zinc-500 rounded-xl">

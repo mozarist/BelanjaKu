@@ -4,7 +4,7 @@
 
         <div class="flex-1">
             <img src="{{ Asset('storage/' . $product->gambar) }}" alt=""
-                class="w-full aspect-square object-cover border border-zinc-300 rounded-md">
+                class="bg-gradient-to-tr from-rose-100 to-white w-full aspect-square object-cover border border-zinc-300 rounded-md">
         </div>
 
         <div class="flex-1 flex flex-col gap-5 justify-evenly">
@@ -12,8 +12,8 @@
             <!-- Detail produk -->
             <div class="space-y-5">
                 <h1 class="text-4xl font-semibold">{{ $product->nama }}</h1>
+                <p class="text-rose-600 text-sm pb-5 border-b border-zinc-400">{{ $product->seller->name }}</p>
                 <p class="text-3xl font-semibold">Rp{{ number_format($product->harga, 0, ',', '.') }},00</p>
-
                 <div class="space-y-0">
                     <h4 class="text-xl font-semibold">Deskripsi Produk:</h4>
                     <p class="text-base text-zinc-700 leading-tight">{{ $product->deskripsi }}</p>
@@ -37,16 +37,17 @@
                             <x-danger-button>Hapus Produk Ini</x-danger-button>
                         </form>
                     </div>
-
                 @else
                     <div class="flex gap-2 items-center">
                         <x-primary-button>
                             Masukkan ke keranjang
                         </x-primary-button>
-                        
-                        <x-secondary-button>
-                            Checkout Sekarang
-                        </x-secondary-button>
+
+                        <a href="{{ route('checkout.create', $product->id) }}">
+                            <x-secondary-button>
+                                Checkout Sekarang
+                            </x-secondary-button>
+                        </a>
                     </div>
                 @endif
             @endauth

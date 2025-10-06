@@ -32,8 +32,9 @@ class AuthenticatedSessionController extends Controller
         if (Auth::user()->role === 'penjual') {
             return redirect('seller');
         }
-
-        return redirect()->intended(route('dashboard', absolute: false));
+        else {
+            return redirect('/');
+        };
     }
 
     /**
