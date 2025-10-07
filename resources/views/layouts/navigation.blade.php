@@ -21,8 +21,8 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
-
-                    @if (Auth::user()->role === 'penjual')
+                    
+                    @if (Auth::check() && Auth::user()->role === 'penjual')
                         <x-nav-link :href="route('seller.index')" :active="request()->routeIs('seller.index')">
                             {{ __('Seller Overview') }}
                         </x-nav-link>

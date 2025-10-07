@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use Carbon\Traits\Timestamp;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $product = Products::all();
+        $product = Products::where('status', 'aktif')->latest()->get();
         return view('welcome', compact('product'));
     }
 }

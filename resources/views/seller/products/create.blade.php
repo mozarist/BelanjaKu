@@ -36,7 +36,7 @@
                 </label>
             </div>
 
-            <label class="block mb-4">
+            <label class="block">
                 <span class="text-sm">Deskripsi Produk</span>
                 <textarea name="deskripsi" placeholder="Masukkan deskripsi produk (pastikan deskripsi sesuai dengan produk yang dijual)"
                     rows="4"

@@ -16,8 +16,11 @@ class Products extends Model
         'user_id',
     ];
 
-    public function seller()
-    {
+    public function seller() {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function orders() {
+        return $this->hasMany(order::class);
     }
 }
