@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
-use Carbon\Traits\Timestamp;
 
 class HomeController extends Controller
 {

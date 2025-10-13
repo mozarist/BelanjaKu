@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -33,7 +33,7 @@
         @endif
 
         <!-- Page Content -->
-        <main class="max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-36 @if (request()->is('/')) py-10 space-y-10 @else sm:py-24 sm:space-y-5 @endif">
+        <main class="max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-24 @if (request()->is('/')) md:pt-4 space-y-10 @else sm:py-24 sm:space-y-10 @endif">
             {{ $slot }}
         </main>
 

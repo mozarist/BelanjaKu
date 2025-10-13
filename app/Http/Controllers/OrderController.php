@@ -13,10 +13,13 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Products $product)
+    public function index()
     {
-        return view('checkout.index', compact('product'));
+        $order = Order::with('products')->where('user_id', Auth::id())->latest()->get();
+
+        return view('checkout.index', compact('order'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,6 +39,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+            'product_id' => 'required|exists:products,id',
             'nama_pemesan' => 'required|string',
             'alamat' => 'required|string',
             'jumlah' => 'required|integer',
@@ -43,10 +47,10 @@ class OrderController extends Controller
             'metode_pembayaran' => 'required|in:COD,bank,e-wallet',
         ]);
 
-        $product = Products::where('status', 'aktif')->findOrFail($data['products_id']);
+        $product = Products::where('status', 'aktif')->findOrFail($data['product_id']);
 
         $harga = (int)$product->harga;
-        $jumlah = (int)$data('jumlah');
+        $jumlah = (int)$data['jumlah'];
         $total_harga = $harga * $jumlah;
 
         DB::transaction(function () use ($request, $product, $harga, $jumlah, $total_harga) {
@@ -66,7 +70,7 @@ class OrderController extends Controller
             ]);
         });
 
-        return redirect(route('order.index'));
+        return redirect()->route('order.index');
     }
 
     /**

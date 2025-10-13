@@ -23,7 +23,9 @@
             </div>
 
             @if (Auth::check() === false)
-                <x-primary-button class="w-fit">Login untuk belanja</x-primary-button>
+                <x-primary-button class="w-fit">
+                    <a href="/login">Login untuk belanja</a>
+                </x-primary-button>
             @else
                 <!-- Kalau pemilik produk yang view produknya -->
             @auth

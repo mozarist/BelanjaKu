@@ -6,10 +6,10 @@
     </h1>
 
     <div class="flex gap-2 items-center">
-        <a href="" class="bg-zinc-950/65 hover:bg-zinc-950 transition backdrop-blur-md w-fit text-white text-base px-6 py-2 border border-zinc-800 rounded-xl">
+        <a href="" class="bg-zinc-950/65 hover:bg-zinc-950 transition backdrop-blur-md w-fit text-white text-xs md:text-base px-4 md:px-6 py-2 border border-zinc-800  rounded-lg md:rounded-xl">
             Belanja sekarang
         </a>
-        <a href="" class="bg-white/50 hover:bg-white/80 transition backdrop-blur-md w-fit text-zinc-950 text-base font-semibold px-6 py-2 border border-zinc-300 rounded-xl">
+        <a href="" class="bg-white/50 hover:bg-white/80 transition backdrop-blur-md w-fit text-zinc-950 text-xs md:text-base px-4 md:px-6 py-2 border border-zinc-300  rounded-lg md:rounded-xl">
             Checkout barang anda
         </a>
     </div>
