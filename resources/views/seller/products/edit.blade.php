@@ -9,15 +9,17 @@
 
             <h2 class="text-2xl font-semibold mb-4">Edit Produk</h2>
 
-            <div id="imgPreview" class="mt-3 hidden">
+            <div id="imgPreview" class="mt-3">
                 <p class="text-xs mb-2">Preview:</p>
-                <img id="previewEl" src="#" alt="preview"
-                    class="max-h-48 hover:max-h-fit w-full rounded-md object-cover border border-zinc-700" />
+                <img id="previewEl" src="{{ Asset('storage/' . $product->gambar) }}" alt="preview"
+                    class="max-h-48 hover:max-h-[600px] w-full rounded-md object-cover border border-zinc-700 transition-all duration-500 ease-in-out" />
             </div>
+
 
             <label class="block ">
                 <span class="text-sm">Nama Produk</span>
-                <input type="text" name='nama' placeholder="Masukkan nama produk" required value="{{ $product->nama }}"
+                <input type="text" name='nama' placeholder="Masukkan nama produk" required
+                    value="{{ $product->nama }}"
                     class="mt-1 block w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600" />
             </label>
 
@@ -40,7 +42,7 @@
             <label class="block mb-4">
                 <span class="text-sm">Deskripsi Produk</span>
                 <textarea name="deskripsi" placeholder="Masukkan deskripsi produk (pastikan deskripsi sesuai dengan produk yang dijual)"
-                    rows="4"
+                    rows="8"
                     class="mt-1 block w-full rounded-lg bg-transparent border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600">{{ $product->deskripsi }}</textarea>
             </label>
 
@@ -56,8 +58,10 @@
                 <select name="status"
                     class="mt-1 block w-full rounded-lg bg-zinc-950 text-white border border-zinc-700 px-3 py-2 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-600"
                     required>
-                    <option value="aktif" {{ $product->status == 'aktif' ? 'selected' : '' }} class="bg-zinc-950 text-white">Aktif</option>
-                    <option value="nonaktif" {{ $product->status == 'nonaktif' ? 'selected' : '' }} class="bg-zinc-950 text-white">Nonaktif (simpan produk di draft)</option>
+                    <option value="aktif" {{ $product->status == 'aktif' ? 'selected' : '' }}
+                        class="bg-zinc-950 text-white">Aktif</option>
+                    <option value="nonaktif" {{ $product->status == 'nonaktif' ? 'selected' : '' }}
+                        class="bg-zinc-950 text-white">Nonaktif (simpan produk di draft)</option>
                 </select>
             </label>
 

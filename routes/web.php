@@ -16,7 +16,9 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 Route::resource('/cart', CartController::class);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/checkout', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::put('/order/{id}', [OrderController::class, 'update'])->name('order.update');
     Route::get('/checkout/{product}', [OrderController::class, 'create'])->name('order.create');
     Route::post('/checkout', [OrderController::class, 'store'])->name('order.store');
 });

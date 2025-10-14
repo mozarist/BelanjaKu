@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 
         <div class="col-span-4 pb-3">
-            <x-search-bar />
+            <x-search-bar>Mau belanja apa hari ini?</x-search-bar>
         </div>
 
         <a href="#"

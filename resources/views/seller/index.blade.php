@@ -90,7 +90,7 @@
                                             <p class="text-base font-semibold leading-none">
                                                 Status:
                                                 <span
-                                                    class="@if ($p->status === 'aktif') text-green-600 @else text-red-600 @endif">
+                                                    class="@if ($p->status === 'aktif') text-green-600 @else sm:text-red-600 @endif">
                                                     {{ $p->status }}
                                                 </span>
                                             </p>
@@ -200,7 +200,7 @@
                                             Pembayaran: {{ $o->metode_pembayaran }}
                                         </div>
 
-                                        <a href="">
+                                        <a href="{{ route('order.show', $o->id) }}">
                                             <x-primary-button>Kelola Pesanan Ini</x-primary-button>
                                         </a>
                                     </div>

@@ -17,7 +17,7 @@ class OrderController extends Controller
     {
         $order = Order::with('products')->where('user_id', Auth::id())->latest()->get();
 
-        return view('checkout.index', compact('order'));
+        return view('order.index', compact('order'));
     }
 
 
@@ -30,7 +30,7 @@ class OrderController extends Controller
         $product = Products::findOrFail($id);
 
         // kirim ke halaman checkout
-        return view('checkout.create', compact('product'));
+        return view('order.create', compact('product'));
     }
 
     /**
@@ -76,9 +76,18 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        $order = Order::with('products')->findOrFail($id);
+
+        if (
+            $order->user_id !== Auth::id() &&
+            $order->products->user_id !== Auth::id()
+        ) {
+            abort(403);
+        }
+
+        return view('order.show', compact('order'));
     }
 
     /**
@@ -92,10 +101,21 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|string|in:pending,diproses,diantar,selesai,dibatalkan',
+        ]);
+
+        $order->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('seller.index');
     }
+
 
     /**
      * Remove the specified resource from storage.

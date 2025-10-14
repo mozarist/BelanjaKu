@@ -52,9 +52,9 @@
                 </div>
             </div>
 
-            @if (!Route::is('seller.index'))
+            @if (!Route::is('seller.index', 'products.create', 'products.edit'))
                 <div class="w-64 lg:w-96">
-                    <x-search-bar />
+                    <x-search-bar>Cari belanjaan</x-search-bar>
                 </div>
             @endif
 

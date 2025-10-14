@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <h1 class="text-6xl font-semibold pb-5">Daftar Belanjaan-mu</h1>
+    <h1 class="text-6xl font-semibold">Daftar Belanjaan-mu</h1>
 
     @if ($order->isEmpty())
         <p
@@ -10,7 +10,7 @@
     @else
         <div class="flex flex-col divide-y divide-zinc-500 bg-white rounded-2xl border border-zinc-500">
             @foreach ($order as $o)
-                <a href="{{ route('products.show', $o->products->id) }}">
+                <a href="{{ route('order.show', $o->id) }}">
                     <div class="flex flex-col md:flex-row md:items-center gap-5 bg-white p-5 w-full h-full rounded-2xl">
                         <div class="w-full md:w-1/3 h-fit">
                             <img src="{{ asset('storage/' . $o->products->gambar) }}" alt=""
@@ -54,9 +54,9 @@
                                     </p>
                                 </div>
 
-                                <h6 class="text-lg text-rose-600 font-semibold leading-tight">
+                                <p class="text-lg text-rose-600 font-semibold leading-tight">
                                     Total: Rp {{ number_format($o->total_harga, 0, ',', '.') }},00
-                                </h6>
+                                </p>
 
                                 <div class="flex items-center gap-2">
                                     <div
