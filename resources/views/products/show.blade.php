@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="flex flex-col md:flex-row gap-24 w-full">
+    <div class="flex flex-col md:flex-row items-start gap-24 w-full">
 
         <div class="flex-1 space-y-5">
             <img src="{{ Asset('storage/' . $product->gambar) }}" alt=""

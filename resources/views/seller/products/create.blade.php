@@ -11,7 +11,7 @@
             <div id="imgPreview" class="mt-3 hidden">
                 <p class="text-xs mb-2">Preview:</p>
                 <img id="previewEl" src="#" alt="preview"
-                    class="max-h-48 hover:max-h-fit w-full rounded-md object-cover border border-zinc-700" />
+                    class="max-h-48 hover:max-h-[600px] w-full rounded-md object-cover border border-zinc-700 transition-all duration-500 ease-in-out" />
             </div>
 
             <label class="block ">
